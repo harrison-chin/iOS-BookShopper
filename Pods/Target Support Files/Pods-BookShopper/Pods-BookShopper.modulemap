@@ -1,0 +1,6 @@
+framework module Pods_BookShopper {
+  umbrella header "Pods-BookShopper-umbrella.h"
+
+  export *
+  module * { export * }
+}
