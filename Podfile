@@ -8,4 +8,8 @@ target 'BookShopper' do
   # Pods for BookShopper
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftyJSON', '~> 4.0'
+  
+  # Pods for BraintreePayment
+  pod 'BraintreeDropIn'
+  pod 'Braintree/PayPal'
 end

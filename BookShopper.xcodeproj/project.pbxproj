@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		73ADB1202AB110A5E60D3521 /* Pods_BookShopper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D540896E770F04D174E555D /* Pods_BookShopper.framework */; };
 		C081783E20ABBF1100D45B9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C081783D20ABBF1100D45B9D /* AppDelegate.swift */; };
-		C081784020ABBF1100D45B9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C081783F20ABBF1100D45B9D /* ViewController.swift */; };
+		C081784020ABBF1100D45B9D /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C081783F20ABBF1100D45B9D /* BooksViewController.swift */; };
 		C081784320ABBF1100D45B9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C081784120ABBF1100D45B9D /* Main.storyboard */; };
 		C081784520ABBF1200D45B9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C081784420ABBF1200D45B9D /* Assets.xcassets */; };
 		C081784820ABBF1200D45B9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C081784620ABBF1200D45B9D /* LaunchScreen.storyboard */; };
+		C09BF4B220B32F8C008B4C74 /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09BF4B120B32F8C008B4C74 /* BookDetailsViewController.swift */; };
 		C0E429DF20AE1B43008121E5 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E429DE20AE1B43008121E5 /* Book.swift */; };
 		C0E429E120AE227E008121E5 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E429E020AE227E008121E5 /* Author.swift */; };
 		C0E429E420AE39BA008121E5 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E429E320AE39BA008121E5 /* BookTableViewCell.swift */; };
@@ -24,11 +25,12 @@
 		6D540896E770F04D174E555D /* Pods_BookShopper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookShopper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C081783A20ABBF1100D45B9D /* BookShopper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookShopper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C081783D20ABBF1100D45B9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C081783F20ABBF1100D45B9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C081783F20ABBF1100D45B9D /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		C081784220ABBF1100D45B9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C081784420ABBF1200D45B9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C081784720ABBF1200D45B9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C081784920ABBF1200D45B9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C09BF4B120B32F8C008B4C74 /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
 		C0E429DE20AE1B43008121E5 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		C0E429E020AE227E008121E5 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		C0E429E320AE39BA008121E5 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
@@ -114,7 +116,8 @@
 		C0E429E520AE3A3C008121E5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C081783F20ABBF1100D45B9D /* ViewController.swift */,
+				C081783F20ABBF1100D45B9D /* BooksViewController.swift */,
+				C09BF4B120B32F8C008B4C74 /* BookDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -232,11 +235,15 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BookShopper/Pods-BookShopper-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Braintree/Braintree.framework",
+				"${BUILT_PRODUCTS_DIR}/BraintreeDropIn/BraintreeDropIn.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Braintree.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BraintreeDropIn.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,10 +258,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C081784020ABBF1100D45B9D /* ViewController.swift in Sources */,
+				C081784020ABBF1100D45B9D /* BooksViewController.swift in Sources */,
 				C081783E20ABBF1100D45B9D /* AppDelegate.swift in Sources */,
 				C0E429E120AE227E008121E5 /* Author.swift in Sources */,
 				C0E429E420AE39BA008121E5 /* BookTableViewCell.swift in Sources */,
+				C09BF4B220B32F8C008B4C74 /* BookDetailsViewController.swift in Sources */,
 				C0E429DF20AE1B43008121E5 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
