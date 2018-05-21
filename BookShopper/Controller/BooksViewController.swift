@@ -21,10 +21,8 @@ class BooksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Enable self sizing cells
         self.tableViewBooks.dataSource = self
         self.tableViewBooks.delegate = self
-//        self.tableViewBooks.estimatedRowHeight = 120
-//        self.tableViewBooks.rowHeight = UITableViewAutomaticDimension
-        // Do any additional setup after loading the view, typically from a nib.
-        if let url = URL(string: "https://lab.taqtik.com/api/books") {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if let url = URL(string: appDelegate.webBaseURL + "books") {
             Alamofire.request(url)
                 .responseJSON { response in
                     guard response.result.isSuccess,
@@ -38,13 +36,9 @@ class BooksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                    author: Author(id: JSON(json["author"].rawValue)["_id"].stringValue,
                                                   family_name: JSON(json["author"].rawValue)["family_name"].stringValue,
                                                   first_name: JSON(json["author"].rawValue)["first_name"].stringValue,
-                                                  date_of_birth: JSON(json["author"].rawValue)["date_of_birth"].stringValue))
+                                                  date_of_birth: JSON(json["author"].rawValue)["date_of_birth"].stringValue),
+                                   price: "10")
                     }
-//                    for curBook in books! {
-//                        print(curBook)
-//                        self.allBooks.append(curBook)
-//                    }
-//                    print(books)
                     self.allBooks = books!
                     DispatchQueue.main.async {
                         self.tableViewBooks.reloadData()

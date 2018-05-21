@@ -12,4 +12,5 @@ struct Book {
     let id: String
     let title: String
     let author: Author
+    let price: String
 }

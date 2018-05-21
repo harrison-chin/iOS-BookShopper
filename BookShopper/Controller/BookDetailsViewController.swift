@@ -19,8 +19,7 @@ class BookDetailsViewController: UIViewController {
     @IBOutlet weak var buttonCheckOut: UIButton!
     var book:Book?
     
-    var clientTokenOrTokenizationKey = "{sandbox tokenization key}"
-    var bookPrice:String?
+    var clientTokenOrTokenizationKey = "{key}"
     var firstName = "John"
     var lastName = "Doe"
     var email = "John.Doe@test.com"
@@ -43,7 +42,6 @@ class BookDetailsViewController: UIViewController {
     }
     
     @IBAction func buttonCheckOutClicked(_ sender: Any) {
-        self.bookPrice = "15" // Test Value
         let request =  BTDropInRequest()
         let dropIn = BTDropInController(authorization: clientTokenOrTokenizationKey, request: request)
         { [unowned self] (controller, result, error) in
@@ -54,7 +52,7 @@ class BookDetailsViewController: UIViewController {
             } else if (result?.isCancelled == true) {
                 self.show(message: "Transaction Cancelled")
                 
-            } else if let nonce = result?.paymentMethod?.nonce, let amount = self.bookPrice {
+            } else if let nonce = result?.paymentMethod?.nonce, let amount = self.book?.price {
                 self.sendRequestPaymentToServer(nonce: nonce, amount: amount, firstName: self.firstName, lastName: self.lastName, email: self.email)
             }
             controller.dismiss(animated: true, completion: nil)
@@ -66,7 +64,8 @@ class BookDetailsViewController: UIViewController {
     func sendRequestPaymentToServer(nonce: String, amount: String, firstName: String, lastName: String, email: String) {
         activityIndicator.startAnimating()
         
-        let paymentURL = URL(string: "https://lab.taqtik.com/api/braintreepay")!
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let paymentURL = URL(string: appDelegate.webBaseURL + "braintreepay")!
         var request = URLRequest(url: paymentURL)
         request.httpBody = "payment_method_nonce=\(nonce)&amount=\(amount)&firstName=\(firstName)&lastName=\(lastName)&email=\(email)".data(using: String.Encoding.utf8)
         request.httpMethod = "POST"
