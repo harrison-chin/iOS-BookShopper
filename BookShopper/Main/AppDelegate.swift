@@ -14,8 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let urlScheme = "com.taqtik.lab.BookShopper"
-//    let webBaseURL = "https://lab.taqtik.com/api/"
-    let webBaseURL = "http://localhost:3000/api/"
+    let webBaseURL = "https://lab.taqtik.com/api/"
+//    let webBaseURL = "http://localhost:3000/api/"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
