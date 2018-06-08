@@ -21,7 +21,7 @@ class BookDetailsViewController: UIViewController {
     @IBOutlet weak var buttonCheckOut: UIButton!
     var book:Book?
     
-    var clientTokenOrTokenizationKey = "{key}"
+    var clientTokenOrTokenizationKey = ""
     var firstName = "John"
     var lastName = "Doe"
     var email = "John.Doe@test.com"
@@ -57,7 +57,9 @@ class BookDetailsViewController: UIViewController {
                 self.show(message: "Transaction Cancelled")
                 
             } else if let nonce = result?.paymentMethod?.nonce {
-                self.showOrderView(book: self.book, nonce: nonce)
+                let description = result?.paymentMethod?.localizedDescription
+                let type = result?.paymentMethod?.type
+                self.showOrderView(book: self.book, nonce: nonce, type: type, description: description)
             }
             controller.dismiss(animated: true, completion: nil)
         }
@@ -65,12 +67,14 @@ class BookDetailsViewController: UIViewController {
         self.present(dropIn!, animated: true, completion: nil)
     }
     
-    func showOrderView(book: Book?, nonce: String) {
+    func showOrderView(book: Book?, nonce: String, type: String?, description: String?) {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "BookOrderViewController") as! BookOrderViewController
         
         viewController.book = book
         viewController.nonce = nonce
+        viewController.pay_type = type
+        viewController.pay_description = description
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     

@@ -20,6 +20,9 @@ class BookOrderViewController: UIViewController {
     
     var book:Book?
     var nonce = ""
+    var pay_type:String?
+    var pay_description:String?
+    
     var firstName = ""
     var lastName = ""
     var email = ""
@@ -43,7 +46,11 @@ class BookOrderViewController: UIViewController {
         if let curBook = self.book {
             self.labelBookTitle.text = curBook.title
             self.labelBookAuthor.text = "Author: " + (curBook.author.first_name + " " + curBook.author.family_name)
-            self.labelBookPrice.text = "Pay Price: $" + curBook.price
+            var paymentText =  String(format:"Pay $%@ by %@", curBook.price, self.pay_type!, self.pay_description!)
+            if let payDescription = self.pay_description {
+                paymentText = String(format:"%@ (%@)",paymentText,payDescription)
+            }
+            self.labelBookPrice.text = paymentText
         }
         
         addDoneButtonOnKeyboard()
