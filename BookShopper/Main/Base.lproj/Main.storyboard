@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YPc-K6-BJf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YPc-K6-BJf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2d3-d4-7Rd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2d3-d4-7Rd">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -30,12 +30,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boolk Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgp-AC-Zvs">
-                                                    <rect key="frame" x="53" y="11" width="307" height="20.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <color key="textColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Book" translatesAutoresizingMaskIntoConstraints="NO" id="FRu-bi-SaY">
                                                     <rect key="frame" x="15" y="8" width="30" height="30"/>
                                                     <constraints>
@@ -43,27 +37,43 @@
                                                         <constraint firstAttribute="width" constant="30" id="CgO-Nd-XUe"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boolk Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgp-AC-Zvs">
+                                                    <rect key="frame" x="53" y="11" width="307" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <color key="textColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKK-pe-kSf">
-                                                    <rect key="frame" x="53" y="47.5" width="307" height="18"/>
+                                                    <rect key="frame" x="53" y="37.5" width="307" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyG-7h-HUD" userLabel="Label Price">
+                                                    <rect key="frame" x="53" y="61.5" width="307" height="18"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <color key="textColor" red="0.77647058820000003" green="0.14117647059999999" blue="0.43449820169999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="kgp-AC-Zvs" firstAttribute="trailing" secondItem="PvV-qH-HRQ" secondAttribute="trailingMargin" id="98x-Y0-isU"/>
+                                                <constraint firstItem="lyG-7h-HUD" firstAttribute="leading" secondItem="UKK-pe-kSf" secondAttribute="leading" id="4fa-UC-Vdf"/>
                                                 <constraint firstItem="UKK-pe-kSf" firstAttribute="trailing" secondItem="PvV-qH-HRQ" secondAttribute="trailingMargin" id="9bM-uK-7NQ"/>
                                                 <constraint firstItem="UKK-pe-kSf" firstAttribute="leading" secondItem="kgp-AC-Zvs" secondAttribute="leading" id="Dcm-GK-NRY"/>
-                                                <constraint firstItem="UKK-pe-kSf" firstAttribute="top" secondItem="kgp-AC-Zvs" secondAttribute="bottom" constant="16" id="Ou9-Sc-x3j"/>
+                                                <constraint firstItem="kgp-AC-Zvs" firstAttribute="trailing" secondItem="PvV-qH-HRQ" secondAttribute="trailingMargin" id="OQt-af-bhU"/>
+                                                <constraint firstItem="UKK-pe-kSf" firstAttribute="top" secondItem="kgp-AC-Zvs" secondAttribute="bottom" constant="6" id="Ou9-Sc-x3j"/>
                                                 <constraint firstItem="FRu-bi-SaY" firstAttribute="leading" secondItem="PvV-qH-HRQ" secondAttribute="leading" constant="15" id="UOo-eu-DFn"/>
                                                 <constraint firstItem="kgp-AC-Zvs" firstAttribute="top" secondItem="PvV-qH-HRQ" secondAttribute="topMargin" id="WY5-N0-5LW"/>
+                                                <constraint firstItem="lyG-7h-HUD" firstAttribute="trailing" secondItem="PvV-qH-HRQ" secondAttribute="trailingMargin" id="aGu-PJ-GEP"/>
                                                 <constraint firstItem="FRu-bi-SaY" firstAttribute="top" secondItem="PvV-qH-HRQ" secondAttribute="top" constant="8" id="f9j-of-CrW"/>
+                                                <constraint firstItem="lyG-7h-HUD" firstAttribute="top" secondItem="UKK-pe-kSf" secondAttribute="bottom" constant="6" id="rLZ-Op-kEn"/>
                                                 <constraint firstItem="kgp-AC-Zvs" firstAttribute="leading" secondItem="FRu-bi-SaY" secondAttribute="trailing" constant="8" id="vKc-uh-5vx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="labelAuthorName" destination="UKK-pe-kSf" id="JAM-DN-iLy"/>
                                             <outlet property="labelBookName" destination="kgp-AC-Zvs" id="ibt-9T-ZOW"/>
+                                            <outlet property="labelPrice" destination="lyG-7h-HUD" id="VDW-2G-CIN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -101,19 +111,22 @@
                                 <color key="textColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Book Description" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rap-iZ-ieH" userLabel="Text View Description">
-                                <rect key="frame" x="8" y="163" width="359" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="TvI-fF-ITI"/>
-                                </constraints>
-                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPi-p5-OQm">
-                                <rect key="frame" x="16" y="116" width="343" height="21"/>
+                                <rect key="frame" x="16" y="108" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book ISBN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGh-CF-hq6" userLabel="Label Book ISBN">
+                                <rect key="frame" x="16" y="141" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xt7-25-zsJ" userLabel="Label Book Price">
+                                <rect key="frame" x="16" y="174" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.77647058820000003" green="0.14117647059999999" blue="0.43449820169999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTt-Ad-MaV">
@@ -133,19 +146,32 @@
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Book Description" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rap-iZ-ieH" userLabel="Text View Description">
+                                <rect key="frame" x="12" y="207" width="351" height="368"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Zdp-k0-sJm" firstAttribute="trailing" secondItem="rap-iZ-ieH" secondAttribute="trailing" constant="8" id="0fQ-Jq-lRb"/>
+                            <constraint firstItem="Zdp-k0-sJm" firstAttribute="trailing" secondItem="rap-iZ-ieH" secondAttribute="trailing" constant="12" id="0fQ-Jq-lRb"/>
+                            <constraint firstItem="rap-iZ-ieH" firstAttribute="top" secondItem="Xt7-25-zsJ" secondAttribute="bottom" constant="12" id="2aa-uI-FCw"/>
                             <constraint firstItem="70b-vs-OWO" firstAttribute="top" secondItem="Zdp-k0-sJm" secondAttribute="top" constant="8" id="9pR-kS-k6N"/>
                             <constraint firstItem="Zdp-k0-sJm" firstAttribute="trailing" secondItem="HTt-Ad-MaV" secondAttribute="trailing" constant="16" id="B6J-Sr-U3B"/>
+                            <constraint firstItem="Xt7-25-zsJ" firstAttribute="leading" secondItem="Zdp-k0-sJm" secondAttribute="leading" constant="16" id="E7P-Nd-QMY"/>
                             <constraint firstItem="70b-vs-OWO" firstAttribute="leading" secondItem="Zdp-k0-sJm" secondAttribute="leading" constant="16" id="ItF-Cf-0Nk"/>
+                            <constraint firstItem="PGh-CF-hq6" firstAttribute="leading" secondItem="Zdp-k0-sJm" secondAttribute="leading" constant="16" id="Kx5-YN-uFF"/>
                             <constraint firstItem="HTt-Ad-MaV" firstAttribute="leading" secondItem="Zdp-k0-sJm" secondAttribute="leading" constant="16" id="Q4R-fo-fqu"/>
-                            <constraint firstItem="rap-iZ-ieH" firstAttribute="leading" secondItem="Zdp-k0-sJm" secondAttribute="leading" constant="8" id="XYZ-yu-UyW"/>
+                            <constraint firstItem="Xt7-25-zsJ" firstAttribute="top" secondItem="PGh-CF-hq6" secondAttribute="bottom" constant="12" id="QBL-II-fkW"/>
+                            <constraint firstItem="rap-iZ-ieH" firstAttribute="leading" secondItem="Zdp-k0-sJm" secondAttribute="leading" constant="12" id="XYZ-yu-UyW"/>
                             <constraint firstItem="Zdp-k0-sJm" firstAttribute="trailing" secondItem="70b-vs-OWO" secondAttribute="trailing" constant="16" id="YST-1h-S80"/>
+                            <constraint firstItem="Zdp-k0-sJm" firstAttribute="trailing" secondItem="PGh-CF-hq6" secondAttribute="trailing" constant="16" id="YYV-8u-uBi"/>
                             <constraint firstItem="Zdp-k0-sJm" firstAttribute="trailing" secondItem="WPi-p5-OQm" secondAttribute="trailing" constant="16" id="Zq3-3I-xPO"/>
-                            <constraint firstItem="rap-iZ-ieH" firstAttribute="top" secondItem="WPi-p5-OQm" secondAttribute="bottom" constant="26" id="blk-4O-f7X"/>
-                            <constraint firstItem="WPi-p5-OQm" firstAttribute="top" secondItem="70b-vs-OWO" secondAttribute="bottom" constant="20" id="iwT-OX-Orc"/>
+                            <constraint firstItem="HTt-Ad-MaV" firstAttribute="top" secondItem="rap-iZ-ieH" secondAttribute="bottom" constant="16" id="bj5-JN-QDf"/>
+                            <constraint firstItem="PGh-CF-hq6" firstAttribute="top" secondItem="WPi-p5-OQm" secondAttribute="bottom" constant="12" id="cCh-sG-hw4"/>
+                            <constraint firstItem="WPi-p5-OQm" firstAttribute="top" secondItem="70b-vs-OWO" secondAttribute="bottom" constant="12" id="iwT-OX-Orc"/>
+                            <constraint firstItem="Zdp-k0-sJm" firstAttribute="trailing" secondItem="Xt7-25-zsJ" secondAttribute="trailing" constant="16" id="lKh-5T-UA6"/>
                             <constraint firstItem="WPi-p5-OQm" firstAttribute="leading" secondItem="Zdp-k0-sJm" secondAttribute="leading" constant="16" id="oWA-Zf-VAa"/>
                             <constraint firstItem="Zdp-k0-sJm" firstAttribute="bottom" secondItem="HTt-Ad-MaV" secondAttribute="bottom" constant="16" id="uUe-WK-2dx"/>
                         </constraints>
@@ -156,6 +182,8 @@
                         <outlet property="activityIndicator" destination="nHQ-HH-1Dk" id="fMQ-1o-6H9"/>
                         <outlet property="buttonCheckOut" destination="HTt-Ad-MaV" id="W6z-xn-3y2"/>
                         <outlet property="labelBookAuthor" destination="WPi-p5-OQm" id="2Ki-kj-N2e"/>
+                        <outlet property="labelBookISBN" destination="PGh-CF-hq6" id="6Zd-Mr-20P"/>
+                        <outlet property="labelBookPrice" destination="Xt7-25-zsJ" id="Xze-L8-pNg"/>
                         <outlet property="labelBookTitle" destination="70b-vs-OWO" id="gs6-dc-YF1"/>
                         <outlet property="textViewBookDescription" destination="rap-iZ-ieH" id="cfJ-zx-0tU"/>
                     </connections>

@@ -37,7 +37,9 @@ class BooksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                                   family_name: JSON(json["author"].rawValue)["family_name"].stringValue,
                                                   first_name: JSON(json["author"].rawValue)["first_name"].stringValue,
                                                   date_of_birth: JSON(json["author"].rawValue)["date_of_birth"].stringValue),
-                                   price: "10")
+                                   summary: json["summary"].stringValue,
+                                   isbn: json["isbn"].stringValue,
+                                   price: json["price"].stringValue)
                     }
                     self.allBooks = books!
                     DispatchQueue.main.async {
@@ -72,6 +74,7 @@ class BooksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         cell.labelBookName?.text = self.allBooks[indexPath.row].title
         cell.labelAuthorName?.text = "Author: " + self.allBooks[indexPath.row].author.first_name + " " + self.allBooks[indexPath.row].author.family_name
+        cell.labelPrice?.text = "Price: $" + self.allBooks[indexPath.row].price
         cell.accessoryType = .none
         
         return cell

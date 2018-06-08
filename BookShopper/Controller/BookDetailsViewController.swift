@@ -13,6 +13,8 @@ import Braintree
 class BookDetailsViewController: UIViewController {
     @IBOutlet weak var labelBookTitle: UILabel!
     @IBOutlet weak var labelBookAuthor: UILabel!
+    @IBOutlet weak var labelBookISBN: UILabel!
+    @IBOutlet weak var labelBookPrice: UILabel!
     @IBOutlet weak var textViewBookDescription: UITextView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -31,7 +33,9 @@ class BookDetailsViewController: UIViewController {
         if let curBook = self.book {
             labelBookTitle.text = curBook.title
             labelBookAuthor.text = "Author: " + (curBook.author.first_name + " " + curBook.author.family_name)
-            textViewBookDescription.text = "Description:\nBook ID: " + curBook.id
+            labelBookISBN.text = "ISBN: " + curBook.isbn
+            labelBookPrice.text = "Price: $" + curBook.price
+            textViewBookDescription.text = "Summary:\n" + curBook.summary + "\n" + "(ID: " + curBook.id + ")"
         }
         // Do any additional setup after loading the view.
     }
