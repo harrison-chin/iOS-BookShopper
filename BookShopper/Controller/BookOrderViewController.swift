@@ -45,6 +45,8 @@ class BookOrderViewController: UIViewController {
             self.labelBookAuthor.text = "Author: " + (curBook.author.first_name + " " + curBook.author.family_name)
             self.labelBookPrice.text = "Pay Price: $" + curBook.price
         }
+        
+        addDoneButtonOnKeyboard()
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,6 +108,34 @@ class BookOrderViewController: UIViewController {
             alertController.addAction(acceptAction)
             self.present(alertController, animated: true, completion: nil)
         }
+    }
+    
+    // MARK - Customize Keyboard toolbar
+    func addDoneButtonOnKeyboard()
+    {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x:0, y:0, width:320, height:50))
+        doneToolbar.barStyle = UIBarStyle.blackTranslucent
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(BookOrderViewController.doneButtonAction))
+        
+        var items:[UIBarButtonItem] = []
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.textFirstName.inputAccessoryView = doneToolbar
+        self.textLastName.inputAccessoryView = doneToolbar
+        self.textEmailAddress.inputAccessoryView = doneToolbar
+    }
+    
+    @objc func doneButtonAction()
+    {
+        self.textFirstName.resignFirstResponder()
+        self.textLastName.resignFirstResponder()
+        self.textEmailAddress.resignFirstResponder()
     }
     /*
     // MARK: - Navigation
