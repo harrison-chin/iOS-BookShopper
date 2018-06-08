@@ -16,10 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let urlScheme = "com.taqtik.lab.BookShopper"
     let webBaseURL = "https://lab.taqtik.com/api/"
 //    let webBaseURL = "http://localhost:3000/api/"
+    
+    // user preferences
+    var userFirstName:String = ""
+    var userLastName:String = ""
+    var userEmail:String = ""
+    var userPhone:String = ""
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         BTAppSwitch.setReturnURLScheme(urlScheme)
+        getUserProfile()
         return true
     }
     
@@ -52,6 +59,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    // Faviorite Packages List
+    func saveUserProfile() {
+        var jsonString = ""
+        jsonString += "{\n"
+        jsonString += "\"firstName\": \"\(self.userFirstName)\",\n"
+        jsonString += "\"lastName\": \"\(self.userLastName)\",\n"
+        jsonString += "\"email\": \"\(self.userEmail)\",\n"
+        jsonString += "\"phone\": \"\(self.userPhone)\""
+        jsonString += "}"
+        let defaults = UserDefaults.standard
+        defaults.set(jsonString, forKey: "Key_UserProfile")
+    }
+    
+    func getUserProfile() {
+        let defaults = UserDefaults.standard
+        if let jsonString = defaults.string(forKey: "Key_UserProfile") {
+            if let jsonData = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false) {
+                do {
+                    let object = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments)
+                    if let dictionary = object as? [String: Any] {
+                        if let firstName = dictionary["firstName"] as? String {
+                            self.userFirstName = firstName
+                        }
+                        if let lastName = dictionary["lastName"] as? String {
+                            self.userLastName = lastName
+                        }
+                        if let email = dictionary["email"] as? String {
+                            self.userEmail = email
+                        }
+                        if let phone = dictionary["phone"] as? String {
+                            self.userPhone = phone
+                        }
+                    }
+                }
+                catch {
+                    print("getUserProfile error")
+                }
+            }
+        }
+    }
 }
 

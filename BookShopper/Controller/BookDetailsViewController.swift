@@ -56,8 +56,8 @@ class BookDetailsViewController: UIViewController {
             } else if (result?.isCancelled == true) {
                 self.show(message: "Transaction Cancelled")
                 
-            } else if let nonce = result?.paymentMethod?.nonce, let amount = self.book?.price {
-                self.sendRequestPaymentToServer(nonce: nonce, amount: amount, firstName: self.firstName, lastName: self.lastName, email: self.email)
+            } else if let nonce = result?.paymentMethod?.nonce {
+                self.showOrderView(book: self.book, nonce: nonce)
             }
             controller.dismiss(animated: true, completion: nil)
         }
@@ -65,29 +65,13 @@ class BookDetailsViewController: UIViewController {
         self.present(dropIn!, animated: true, completion: nil)
     }
     
-    func sendRequestPaymentToServer(nonce: String, amount: String, firstName: String, lastName: String, email: String) {
-        activityIndicator.startAnimating()
+    func showOrderView(book: Book?, nonce: String) {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "BookOrderViewController") as! BookOrderViewController
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let paymentURL = URL(string: appDelegate.webBaseURL + "braintreepay")!
-        var request = URLRequest(url: paymentURL)
-        request.httpBody = "payment_method_nonce=\(nonce)&amount=\(amount)&firstName=\(firstName)&lastName=\(lastName)&email=\(email)".data(using: String.Encoding.utf8)
-        request.httpMethod = "POST"
-        URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) -> Void in
-            guard let data = data else {
-                self?.show(message: error!.localizedDescription)
-                return
-            }
-            
-            let string1 = String(data: data, encoding: String.Encoding.utf8) ?? "Data could not be printed"
-            print(string1)
-            guard let result = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let success = result?["success"] as? Bool, success == true else {
-                self?.show(message: "Transaction failed. Please try again.")
-                return
-            }
-            
-            self?.show(message: "Successfully charged. Thanks for shopping the books!")
-            }.resume()
+        viewController.book = book
+        viewController.nonce = nonce
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func show(message: String) {
@@ -95,7 +79,7 @@ class BookDetailsViewController: UIViewController {
             self.activityIndicator.stopAnimating()
             
             let alertController = UIAlertController(title: message, message: "", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
         }
     }

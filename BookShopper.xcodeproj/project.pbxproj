@@ -17,6 +17,7 @@
 		C0E429DF20AE1B43008121E5 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E429DE20AE1B43008121E5 /* Book.swift */; };
 		C0E429E120AE227E008121E5 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E429E020AE227E008121E5 /* Author.swift */; };
 		C0E429E420AE39BA008121E5 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E429E320AE39BA008121E5 /* BookTableViewCell.swift */; };
+		C0F957CE20CAFAC600B5674E /* BookOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F957CD20CAFAC600B5674E /* BookOrderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C0E429DE20AE1B43008121E5 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		C0E429E020AE227E008121E5 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		C0E429E320AE39BA008121E5 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		C0F957CD20CAFAC600B5674E /* BookOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookOrderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			children = (
 				C081783F20ABBF1100D45B9D /* BooksViewController.swift */,
 				C09BF4B120B32F8C008B4C74 /* BookDetailsViewController.swift */,
+				C0F957CD20CAFAC600B5674E /* BookOrderViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				C081784020ABBF1100D45B9D /* BooksViewController.swift in Sources */,
 				C081783E20ABBF1100D45B9D /* AppDelegate.swift in Sources */,
 				C0E429E120AE227E008121E5 /* Author.swift in Sources */,
+				C0F957CE20CAFAC600B5674E /* BookOrderViewController.swift in Sources */,
 				C0E429E420AE39BA008121E5 /* BookTableViewCell.swift in Sources */,
 				C09BF4B220B32F8C008B4C74 /* BookDetailsViewController.swift in Sources */,
 				C0E429DF20AE1B43008121E5 /* Book.swift in Sources */,
