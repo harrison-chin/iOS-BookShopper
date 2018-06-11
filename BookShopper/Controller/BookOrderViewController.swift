@@ -46,7 +46,7 @@ class BookOrderViewController: UIViewController {
         if let curBook = self.book {
             self.labelBookTitle.text = curBook.title
             self.labelBookAuthor.text = "Author: " + (curBook.author.first_name + " " + curBook.author.family_name)
-            var paymentText =  String(format:"Pay $%@ by %@", curBook.price, self.pay_type!, self.pay_description!)
+            var paymentText =  String(format:"Pay $%@ by %@", curBook.price, self.pay_type!)
             if let payDescription = self.pay_description {
                 paymentText = String(format:"%@ (%@)",paymentText,payDescription)
             }
