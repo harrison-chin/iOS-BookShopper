@@ -8,9 +8,10 @@
 
 import UIKit
 import Braintree
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     let urlScheme = "com.taqtik.lab.BookShopper"
@@ -24,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var userPhone:String = ""
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        registerForPushNotifications()
         BTAppSwitch.setReturnURLScheme(urlScheme)
         getUserProfile()
         return true
@@ -57,6 +59,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // 1. Convert device token to string
+        let tokenParts = deviceToken.map { data -> String in
+            return String(format: "%02.2hhx", data)
+        }
+        let token = tokenParts.joined()
+        // 2. Print device token to use for PNs payloads
+        print("Device Token: \(token)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        // 1. Print out error if PNs registration not successful
+        print("Failed to register for remote notifications with error: \(error)")
     }
 
     // Faviorite Packages List
@@ -96,6 +113,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 catch {
                     print("getUserProfile error")
                 }
+            }
+        }
+    }
+  
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            print("Permission granted: \(granted)")
+            // 1. Check if permission granted
+            guard granted else { return }
+            // 2. Attempt registration for remote notifications on the main thread
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
             }
         }
     }

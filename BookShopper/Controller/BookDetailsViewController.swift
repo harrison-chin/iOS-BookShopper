@@ -21,7 +21,7 @@ class BookDetailsViewController: UIViewController {
     @IBOutlet weak var buttonCheckOut: UIButton!
     var book:Book?
     
-    var clientTokenOrTokenizationKey = ""
+    var clientTokenOrTokenizationKey = "sandbox_jzgw4n4x_z68vm2n954m3r2yz"
     var firstName = "John"
     var lastName = "Doe"
     var email = "John.Doe@test.com"

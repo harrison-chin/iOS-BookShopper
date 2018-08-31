@@ -31,6 +31,7 @@
 		C081784420ABBF1200D45B9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C081784720ABBF1200D45B9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C081784920ABBF1200D45B9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C09A3BBE20D9BEBD00AF31B1 /* BookShopper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BookShopper.entitlements; sourceTree = "<group>"; };
 		C09BF4B120B32F8C008B4C74 /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
 		C0E429DE20AE1B43008121E5 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		C0E429E020AE227E008121E5 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 		C081783C20ABBF1100D45B9D /* BookShopper */ = {
 			isa = PBXGroup;
 			children = (
+				C09A3BBE20D9BEBD00AF31B1 /* BookShopper.entitlements */,
 				C0E429E620AE3BAA008121E5 /* Main */,
 				C0E429E520AE3A3C008121E5 /* Controller */,
 				C0E429E220AE3996008121E5 /* View */,
@@ -177,6 +179,11 @@
 				TargetAttributes = {
 					C081783920ABBF1100D45B9D = {
 						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -412,6 +419,7 @@
 			baseConfigurationReference = 6C3CC9865A16D4621AF03662 /* Pods-BookShopper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BookShopper/BookShopper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N2BE6EU53M;
 				INFOPLIST_FILE = BookShopper/Info.plist;
@@ -431,6 +439,7 @@
 			baseConfigurationReference = 1FCB4E6A6691B5A3C44C856F /* Pods-BookShopper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BookShopper/BookShopper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N2BE6EU53M;
 				INFOPLIST_FILE = BookShopper/Info.plist;
